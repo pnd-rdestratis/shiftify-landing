@@ -68,7 +68,7 @@ export function Hero() {
             transition={{ delay: 0.4, duration: 0.8 }}
             className="screenshot-frame mx-auto max-w-5xl"
           >
-            <div className="aspect-[16/10] rounded-xl overflow-hidden border border-[#E2E8F0]">
+            <div className="rounded-xl overflow-hidden border border-[#E2E8F0] aspect-[16/10]">
               <DashboardPreview />
             </div>
           </motion.div>

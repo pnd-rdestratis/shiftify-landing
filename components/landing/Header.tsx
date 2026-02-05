@@ -48,12 +48,6 @@ export function Header() {
               {t("features")}
             </a>
             <a
-              href="#use-cases"
-              className="text-text-muted hover:text-primary transition-colors"
-            >
-              {t("useCases")}
-            </a>
-            <a
               href="#contact"
               className="text-text-muted hover:text-primary transition-colors"
             >
@@ -92,13 +86,6 @@ export function Header() {
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {t("features")}
-              </a>
-              <a
-                href="#use-cases"
-                className="text-text-muted hover:text-primary transition-colors py-2"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                {t("useCases")}
               </a>
               <a
                 href="#contact"
