@@ -27,91 +27,93 @@ function generateNotificationEmail(data: {
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<body style="margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #F8FAFC;">
+<body style="margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background-color: #F8FAFC;">
   <table role="presentation" style="width: 100%; border-collapse: collapse;">
     <tr>
-      <td align="center" style="padding: 40px 20px;">
-        <table role="presentation" style="width: 100%; max-width: 600px; border-collapse: collapse;">
+      <td align="center" style="padding: 48px 24px;">
+        <table role="presentation" style="width: 100%; max-width: 560px; border-collapse: collapse;">
 
-          <!-- Header -->
+          <!-- Logo -->
           <tr>
-            <td style="background: linear-gradient(135deg, #3B82F6 0%, #1E40AF 100%); padding: 40px 40px 30px; border-radius: 16px 16px 0 0;">
-              <table role="presentation" style="width: 100%;">
+            <td style="padding-bottom: 32px;">
+              <table role="presentation">
                 <tr>
-                  <td>
-                    <h1 style="margin: 0; color: #FFFFFF; font-size: 28px; font-weight: 700;">
-                      Linetrace
-                    </h1>
-                    <p style="margin: 8px 0 0; color: rgba(255,255,255,0.9); font-size: 14px;">
-                      New Demo Request
-                    </p>
+                  <td style="background-color: #3B82F6; width: 40px; height: 40px; border-radius: 10px; text-align: center; vertical-align: middle;">
+                    <span style="color: white; font-size: 18px; font-weight: bold;">L</span>
                   </td>
-                  <td align="right" style="vertical-align: top;">
-                    <div style="background: rgba(255,255,255,0.2); border-radius: 12px; padding: 12px 16px;">
-                      <span style="color: #FFFFFF; font-size: 24px;">🎯</span>
-                    </div>
+                  <td style="padding-left: 12px;">
+                    <span style="font-size: 20px; font-weight: 700; color: #0F172A;">Linetrace</span>
                   </td>
                 </tr>
               </table>
             </td>
           </tr>
 
-          <!-- Body -->
+          <!-- Main Card -->
           <tr>
-            <td style="background-color: #FFFFFF; padding: 40px;">
+            <td style="background-color: #FFFFFF; border-radius: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); overflow: hidden;">
 
-              <!-- Alert Banner -->
-              <div style="background: linear-gradient(135deg, #10B981 0%, #059669 100%); border-radius: 12px; padding: 16px 20px; margin-bottom: 24px;">
-                <p style="margin: 0; color: #FFFFFF; font-size: 15px; font-weight: 600;">
-                  ✨ New lead from the Linetrace landing page!
-                </p>
-              </div>
-
-              <!-- Contact Info Card -->
-              <table role="presentation" style="width: 100%; background-color: #F8FAFC; border-radius: 12px; margin-bottom: 24px;">
+              <!-- Header -->
+              <table role="presentation" style="width: 100%; background-color: #F8FAFC; border-bottom: 1px solid #E2E8F0;">
                 <tr>
-                  <td style="padding: 24px;">
-                    <table role="presentation" style="width: 100%;">
-                      <tr>
-                        <td style="padding-bottom: 16px; border-bottom: 1px solid #E2E8F0;">
-                          <p style="margin: 0 0 4px; color: #64748B; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px;">Name</p>
-                          <p style="margin: 0; color: #0F172A; font-size: 16px; font-weight: 600;">${data.name}</p>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td style="padding: 16px 0; border-bottom: 1px solid #E2E8F0;">
-                          <p style="margin: 0 0 4px; color: #64748B; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px;">Email</p>
-                          <p style="margin: 0;">
-                            <a href="mailto:${data.email}" style="color: #3B82F6; font-size: 16px; font-weight: 600; text-decoration: none;">${data.email}</a>
-                          </p>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td style="padding-top: 16px;">
-                          <p style="margin: 0 0 4px; color: #64748B; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px;">Company</p>
-                          <p style="margin: 0; color: #0F172A; font-size: 16px; font-weight: 600;">${data.company}</p>
-                        </td>
-                      </tr>
-                    </table>
+                  <td style="padding: 24px 32px;">
+                    <p style="margin: 0; font-size: 13px; color: #64748B; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600;">New Demo Request</p>
                   </td>
                 </tr>
               </table>
 
-              <!-- Message -->
-              <div style="margin-bottom: 32px;">
-                <p style="margin: 0 0 12px; color: #64748B; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px;">Message</p>
-                <div style="background-color: #F8FAFC; border-left: 4px solid #3B82F6; padding: 20px; border-radius: 0 8px 8px 0;">
-                  <p style="margin: 0; color: #334155; font-size: 15px; line-height: 1.7; white-space: pre-wrap;">${data.message || "No message provided"}</p>
-                </div>
-              </div>
-
-              <!-- CTA -->
+              <!-- Content -->
               <table role="presentation" style="width: 100%;">
                 <tr>
-                  <td align="center">
-                    <a href="mailto:${data.email}?subject=Re: Your Linetrace Demo Request" style="display: inline-block; background: linear-gradient(135deg, #3B82F6 0%, #1E40AF 100%); color: #FFFFFF; text-decoration: none; padding: 14px 32px; border-radius: 8px; font-weight: 600; font-size: 14px;">
-                      Reply to ${data.name.split(' ')[0]}
-                    </a>
+                  <td style="padding: 32px;">
+
+                    <!-- Contact Details -->
+                    <table role="presentation" style="width: 100%; margin-bottom: 24px;">
+                      <tr>
+                        <td style="padding-bottom: 20px; border-bottom: 1px solid #F1F5F9;">
+                          <p style="margin: 0 0 4px; font-size: 12px; color: #94A3B8; text-transform: uppercase; letter-spacing: 0.5px;">Name</p>
+                          <p style="margin: 0; font-size: 16px; color: #0F172A; font-weight: 600;">${data.name}</p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td style="padding: 20px 0; border-bottom: 1px solid #F1F5F9;">
+                          <p style="margin: 0 0 4px; font-size: 12px; color: #94A3B8; text-transform: uppercase; letter-spacing: 0.5px;">Email</p>
+                          <p style="margin: 0;">
+                            <a href="mailto:${data.email}" style="font-size: 16px; color: #3B82F6; font-weight: 600; text-decoration: none;">${data.email}</a>
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td style="padding-top: 20px;">
+                          <p style="margin: 0 0 4px; font-size: 12px; color: #94A3B8; text-transform: uppercase; letter-spacing: 0.5px;">Company</p>
+                          <p style="margin: 0; font-size: 16px; color: #0F172A; font-weight: 600;">${data.company}</p>
+                        </td>
+                      </tr>
+                    </table>
+
+                    <!-- Message -->
+                    <table role="presentation" style="width: 100%; margin-bottom: 32px;">
+                      <tr>
+                        <td>
+                          <p style="margin: 0 0 8px; font-size: 12px; color: #94A3B8; text-transform: uppercase; letter-spacing: 0.5px;">Message</p>
+                          <div style="background-color: #F8FAFC; border-radius: 8px; padding: 16px; border-left: 3px solid #3B82F6;">
+                            <p style="margin: 0; font-size: 15px; color: #334155; line-height: 1.6;">${data.message || "No message provided"}</p>
+                          </div>
+                        </td>
+                      </tr>
+                    </table>
+
+                    <!-- Button -->
+                    <table role="presentation" style="width: 100%;">
+                      <tr>
+                        <td align="center">
+                          <a href="mailto:${data.email}?subject=Re: Your Linetrace Demo Request" style="display: inline-block; background-color: #3B82F6; color: #FFFFFF; text-decoration: none; padding: 14px 28px; border-radius: 8px; font-weight: 600; font-size: 14px;">
+                            Reply to ${data.name.split(' ')[0]}
+                          </a>
+                        </td>
+                      </tr>
+                    </table>
+
                   </td>
                 </tr>
               </table>
@@ -121,20 +123,10 @@ function generateNotificationEmail(data: {
 
           <!-- Footer -->
           <tr>
-            <td style="background-color: #0F172A; padding: 32px 40px; border-radius: 0 0 16px 16px;">
-              <table role="presentation" style="width: 100%;">
-                <tr>
-                  <td>
-                    <p style="margin: 0 0 8px; color: #FFFFFF; font-size: 16px; font-weight: 600;">Linetrace</p>
-                    <p style="margin: 0; color: #94A3B8; font-size: 13px;">Internal Notification</p>
-                  </td>
-                  <td align="right" style="vertical-align: top;">
-                    <p style="margin: 0; color: #64748B; font-size: 12px;">
-                      ${new Date().toLocaleDateString('de-DE', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' })}
-                    </p>
-                  </td>
-                </tr>
-              </table>
+            <td style="padding: 32px 0; text-align: center;">
+              <p style="margin: 0; font-size: 13px; color: #94A3B8;">
+                ${new Date().toLocaleDateString('de-DE', { day: '2-digit', month: 'long', year: 'numeric', hour: '2-digit', minute: '2-digit' })}
+              </p>
             </td>
           </tr>
 
@@ -160,71 +152,96 @@ function generateConfirmationEmail(data: {
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<body style="margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #F8FAFC;">
+<body style="margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background-color: #F8FAFC;">
   <table role="presentation" style="width: 100%; border-collapse: collapse;">
     <tr>
-      <td align="center" style="padding: 40px 20px;">
-        <table role="presentation" style="width: 100%; max-width: 600px; border-collapse: collapse;">
+      <td align="center" style="padding: 48px 24px;">
+        <table role="presentation" style="width: 100%; max-width: 560px; border-collapse: collapse;">
 
-          <!-- Header -->
+          <!-- Logo -->
           <tr>
-            <td style="background: linear-gradient(135deg, #3B82F6 0%, #1E40AF 100%); padding: 40px 40px 30px; border-radius: 16px 16px 0 0;">
-              <table role="presentation" style="width: 100%;">
+            <td style="padding-bottom: 32px; text-align: center;">
+              <table role="presentation" style="display: inline-block;">
                 <tr>
-                  <td>
-                    <h1 style="margin: 0; color: #FFFFFF; font-size: 28px; font-weight: 700;">
-                      Linetrace
-                    </h1>
-                    <p style="margin: 8px 0 0; color: rgba(255,255,255,0.9); font-size: 14px;">
-                      Digital Shift Documentation for Production
-                    </p>
+                  <td style="background-color: #3B82F6; width: 44px; height: 44px; border-radius: 12px; text-align: center; vertical-align: middle;">
+                    <span style="color: white; font-size: 20px; font-weight: bold;">L</span>
                   </td>
-                  <td align="right" style="vertical-align: top;">
-                    <div style="background: rgba(255,255,255,0.2); border-radius: 12px; padding: 12px 16px;">
-                      <span style="color: #FFFFFF; font-size: 24px;">✅</span>
-                    </div>
+                  <td style="padding-left: 12px;">
+                    <span style="font-size: 22px; font-weight: 700; color: #0F172A;">Linetrace</span>
                   </td>
                 </tr>
               </table>
             </td>
           </tr>
 
-          <!-- Body -->
+          <!-- Main Card -->
           <tr>
-            <td style="background-color: #FFFFFF; padding: 40px;">
+            <td style="background-color: #FFFFFF; border-radius: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); overflow: hidden;">
 
-              <!-- Greeting -->
-              <h2 style="margin: 0 0 24px; color: #0F172A; font-size: 24px; font-weight: 700;">
-                Thank you, ${firstName}!
-              </h2>
-
-              <p style="margin: 0 0 20px; color: #334155; font-size: 16px; line-height: 1.7;">
-                We have received your demo request for <strong>Linetrace</strong> and are excited to show you how we can help digitize production at <strong>${data.company}</strong>.
-              </p>
-
-              <!-- What's Next Card -->
-              <div style="background: linear-gradient(135deg, #F0FDF4 0%, #DCFCE7 100%); border-radius: 12px; padding: 24px; margin: 24px 0; border: 1px solid #BBF7D0;">
-                <h3 style="margin: 0 0 16px; color: #166534; font-size: 16px; font-weight: 700;">
-                  📋 What happens next?
-                </h3>
-                <ul style="margin: 0; padding: 0 0 0 20px; color: #15803D; font-size: 15px; line-height: 1.8;">
-                  <li>Our team will review your request</li>
-                  <li>We'll reach out within <strong>24 hours</strong> to schedule a personalized demo</li>
-                  <li>You'll see how Linetrace can transform your shift documentation</li>
-                </ul>
-              </div>
-
-              <p style="margin: 0 0 24px; color: #334155; font-size: 16px; line-height: 1.7;">
-                In the meantime, if you have any questions, feel free to reply to this email.
-              </p>
-
-              <!-- CTA -->
+              <!-- Content -->
               <table role="presentation" style="width: 100%;">
                 <tr>
-                  <td align="center">
-                    <a href="https://shiftify-five.vercel.app" style="display: inline-block; background: linear-gradient(135deg, #3B82F6 0%, #1E40AF 100%); color: #FFFFFF; text-decoration: none; padding: 14px 32px; border-radius: 8px; font-weight: 600; font-size: 14px;">
-                      Visit Our Website
-                    </a>
+                  <td style="padding: 48px 40px;">
+
+                    <!-- Heading -->
+                    <h1 style="margin: 0 0 24px; font-size: 28px; font-weight: 700; color: #0F172A; text-align: center;">
+                      Thank you, ${firstName}
+                    </h1>
+
+                    <p style="margin: 0 0 24px; font-size: 16px; color: #475569; line-height: 1.7; text-align: center;">
+                      We have received your demo request and are excited to show you how Linetrace can help digitize production at <strong style="color: #0F172A;">${data.company}</strong>.
+                    </p>
+
+                    <!-- Divider -->
+                    <div style="height: 1px; background-color: #E2E8F0; margin: 32px 0;"></div>
+
+                    <!-- What's Next -->
+                    <h2 style="margin: 0 0 20px; font-size: 16px; font-weight: 600; color: #0F172A;">
+                      What happens next
+                    </h2>
+
+                    <table role="presentation" style="width: 100%; margin-bottom: 32px;">
+                      <tr>
+                        <td style="padding: 12px 0; vertical-align: top; width: 32px;">
+                          <div style="width: 24px; height: 24px; background-color: #F0FDF4; border-radius: 50%; text-align: center; line-height: 24px; font-size: 12px; font-weight: 600; color: #10B981;">1</div>
+                        </td>
+                        <td style="padding: 12px 0 12px 12px; vertical-align: top;">
+                          <p style="margin: 0; font-size: 15px; color: #334155; line-height: 1.5;">Our team will review your request</p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td style="padding: 12px 0; vertical-align: top; width: 32px;">
+                          <div style="width: 24px; height: 24px; background-color: #F0FDF4; border-radius: 50%; text-align: center; line-height: 24px; font-size: 12px; font-weight: 600; color: #10B981;">2</div>
+                        </td>
+                        <td style="padding: 12px 0 12px 12px; vertical-align: top;">
+                          <p style="margin: 0; font-size: 15px; color: #334155; line-height: 1.5;">We will reach out within <strong>24 hours</strong> to schedule a demo</p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td style="padding: 12px 0; vertical-align: top; width: 32px;">
+                          <div style="width: 24px; height: 24px; background-color: #F0FDF4; border-radius: 50%; text-align: center; line-height: 24px; font-size: 12px; font-weight: 600; color: #10B981;">3</div>
+                        </td>
+                        <td style="padding: 12px 0 12px 12px; vertical-align: top;">
+                          <p style="margin: 0; font-size: 15px; color: #334155; line-height: 1.5;">You will see how Linetrace transforms your shift documentation</p>
+                        </td>
+                      </tr>
+                    </table>
+
+                    <p style="margin: 0 0 32px; font-size: 15px; color: #64748B; line-height: 1.6; text-align: center;">
+                      If you have any questions, feel free to reply to this email.
+                    </p>
+
+                    <!-- Button -->
+                    <table role="presentation" style="width: 100%;">
+                      <tr>
+                        <td align="center">
+                          <a href="https://shiftify-five.vercel.app" style="display: inline-block; background-color: #3B82F6; color: #FFFFFF; text-decoration: none; padding: 14px 28px; border-radius: 8px; font-weight: 600; font-size: 14px;">
+                            Visit Our Website
+                          </a>
+                        </td>
+                      </tr>
+                    </table>
+
                   </td>
                 </tr>
               </table>
@@ -234,24 +251,10 @@ function generateConfirmationEmail(data: {
 
           <!-- Footer -->
           <tr>
-            <td style="background-color: #0F172A; padding: 32px 40px; border-radius: 0 0 16px 16px;">
-              <table role="presentation" style="width: 100%;">
-                <tr>
-                  <td>
-                    <p style="margin: 0 0 8px; color: #FFFFFF; font-size: 16px; font-weight: 600;">Linetrace</p>
-                    <p style="margin: 0 0 16px; color: #94A3B8; font-size: 13px;">The modern shopfloor solution for digital production</p>
-                    <p style="margin: 0; color: #64748B; font-size: 12px;">
-                      Pandata GmbH<br>
-                      Stuttgart, Germany
-                    </p>
-                  </td>
-                  <td align="right" style="vertical-align: top;">
-                    <p style="margin: 0; color: #64748B; font-size: 12px;">
-                      ${new Date().toLocaleDateString('de-DE', { day: '2-digit', month: '2-digit', year: 'numeric' })}
-                    </p>
-                  </td>
-                </tr>
-              </table>
+            <td style="padding: 32px 0; text-align: center;">
+              <p style="margin: 0 0 8px; font-size: 14px; font-weight: 600; color: #0F172A;">Linetrace</p>
+              <p style="margin: 0 0 4px; font-size: 13px; color: #64748B;">Digital Shift Documentation for Production</p>
+              <p style="margin: 0; font-size: 12px; color: #94A3B8;">Pandata GmbH · Stuttgart, Germany</p>
             </td>
           </tr>
 
@@ -281,7 +284,7 @@ export async function POST(request: NextRequest) {
       from: `"Linetrace" <${process.env.SMTP_USER}>`,
       to: NOTIFICATION_EMAIL,
       replyTo: email,
-      subject: `🎯 New Demo Request: ${name} from ${company}`,
+      subject: `New Demo Request: ${name} from ${company}`,
       html: generateNotificationEmail({ name, email, company, message }),
     });
 
@@ -290,7 +293,7 @@ export async function POST(request: NextRequest) {
       from: `"Linetrace" <${process.env.SMTP_USER}>`,
       to: email,
       replyTo: NOTIFICATION_EMAIL,
-      subject: `Thank you for your interest in Linetrace!`,
+      subject: `Thank you for your interest in Linetrace`,
       html: generateConfirmationEmail({ name, company }),
     });
 
