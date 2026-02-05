@@ -13,6 +13,11 @@ export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
+  const scrollToContact = () => {
+    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+    setIsMobileMenuOpen(false);
+  };
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
@@ -58,7 +63,7 @@ export function Header() {
 
           <div className="hidden md:flex items-center gap-4">
             <LanguageToggle />
-            <Button variant="primary" size="sm">
+            <Button variant="primary" size="sm" onClick={scrollToContact}>
               {t("demo")}
             </Button>
           </div>
@@ -104,7 +109,7 @@ export function Header() {
               </a>
               <div className="flex items-center gap-4 pt-4 border-t border-border">
                 <LanguageToggle />
-                <Button variant="primary" size="sm" className="flex-1">
+                <Button variant="primary" size="sm" className="flex-1" onClick={scrollToContact}>
                   {t("demo")}
                 </Button>
               </div>

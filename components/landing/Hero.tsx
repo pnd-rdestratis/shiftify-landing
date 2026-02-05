@@ -9,6 +9,10 @@ import { DashboardPreview } from "./DashboardPreview";
 export function Hero() {
   const t = useTranslations("hero");
 
+  const scrollToContact = () => {
+    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <section className="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden">
       {/* Background gradient */}
@@ -50,7 +54,7 @@ export function Hero() {
             transition={{ delay: 0.2 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-4"
           >
-            <Button variant="primary" size="lg">
+            <Button variant="primary" size="lg" onClick={scrollToContact}>
               {t("cta")}
             </Button>
           </motion.div>
