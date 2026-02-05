@@ -253,8 +253,7 @@ function generateConfirmationEmail(data: {
           <tr>
             <td style="padding: 32px 0; text-align: center;">
               <p style="margin: 0 0 8px; font-size: 14px; font-weight: 600; color: #0F172A;">Linetrace</p>
-              <p style="margin: 0 0 4px; font-size: 13px; color: #64748B;">Digital Shift Documentation for Production</p>
-              <p style="margin: 0; font-size: 12px; color: #94A3B8;">Pandata GmbH · Stuttgart, Germany</p>
+              <p style="margin: 0; font-size: 13px; color: #64748B;">Digital Shift Documentation for Production</p>
             </td>
           </tr>
 
