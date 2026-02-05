@@ -71,7 +71,7 @@ function generateNotificationEmail(data: {
               <table role="presentation">
                 <tr>
                   <td style="width: 40px; height: 40px; vertical-align: middle;">
-                    <img src="https://shiftify-five.vercel.app/icon.svg" alt="Linetrace" width="40" height="40" style="display: block; border-radius: 10px;" />
+                    <img src="https://linetrace.app/icon.svg" alt="Linetrace" width="40" height="40" style="display: block; border-radius: 10px;" />
                   </td>
                   <td style="padding-left: 12px;">
                     <span style="font-size: 20px; font-weight: 700; color: #0F172A;">Linetrace</span>
@@ -191,7 +191,7 @@ function generateConfirmationEmail(data: {
               <table role="presentation" style="display: inline-block;">
                 <tr>
                   <td style="width: 44px; height: 44px; vertical-align: middle;">
-                    <img src="https://shiftify-five.vercel.app/icon.svg" alt="Linetrace" width="44" height="44" style="display: block; border-radius: 12px;" />
+                    <img src="https://linetrace.app/icon.svg" alt="Linetrace" width="44" height="44" style="display: block; border-radius: 12px;" />
                   </td>
                   <td style="padding-left: 12px;">
                     <span style="font-size: 22px; font-weight: 700; color: #0F172A;">Linetrace</span>
