@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1440">
+  <title>Shiftify - Systemintegration</title>
+  <link rel="stylesheet" href="mockup-styles.css">
+  <style>
+    body {
+      width: 1440px;
+      min-height: 900px;
+    }
+    .integration-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding-top: 40px;
+    }
+    .page-title {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    .page-title h1 {
+      font-size: 2rem;
+      margin-bottom: 12px;
+    }
+    .page-title p {
+      color: var(--text-muted);
+      font-size: 1.125rem;
+    }
+    .diagram {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      position: relative;
+    }
+    .column {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      z-index: 1;
+    }
+    .node {
+      background: var(--dashboard-card);
+      border: 1px solid var(--dashboard-border);
+      border-radius: 16px;
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      min-width: 200px;
+      transition: all 0.2s;
+    }
+    .node:hover {
+      border-color: var(--accent);
+      transform: translateX(4px);
+    }
+    .column.right .node:hover {
+      transform: translateX(-4px);
+    }
+    .node-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .node-icon.machine {
+      background: rgba(244, 67, 54, 0.15);
+      color: var(--status-red);
+    }
+    .node-icon.output {
+      background: rgba(0, 200, 83, 0.15);
+      color: var(--status-green);
+    }
+    .node-info h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .node-info p {
+      font-size: 0.75rem;
+      color: var(--text-dim);
+    }
+    .center-hub {
+      position: relative;
+      z-index: 2;
+    }
+    .hub-outer {
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .hub-outer::before {
+      content: '';
+      position: absolute;
+      inset: 20px;
+      border-radius: 50%;
+      border: 2px dashed var(--dashboard-border);
+      animation: rotate 30s linear infinite;
+    }
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    .hub-inner {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent) 0%, #8B5CF6 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 20px 60px -12px rgba(59, 130, 246, 0.5);
+    }
+    .hub-logo {
+      width: 48px;
+      height: 48px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 8px;
+    }
+    .hub-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+    .hub-subtitle {
+      font-size: 0.75rem;
+      opacity: 0.8;
+    }
+    .connection-lines {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      pointer-events: none;
+    }
+    .connection-line {
+      position: absolute;
+      height: 2px;
+      background: linear-gradient(90deg, var(--dashboard-border) 0%, var(--accent) 50%, var(--dashboard-border) 100%);
+    }
+    .connection-label {
+      position: absolute;
+      font-size: 0.625rem;
+      color: var(--accent);
+      background: var(--dashboard-bg);
+      padding: 4px 8px;
+      border-radius: 4px;
+      border: 1px solid var(--dashboard-border);
+      white-space: nowrap;
+    }
+    .left-lines {
+      left: 200px;
+      width: calc(50% - 340px);
+    }
+    .right-lines {
+      right: 200px;
+      width: calc(50% - 340px);
+    }
+    .line-1 { top: 60px; }
+    .line-2 { top: 140px; }
+    .line-3 { top: 220px; }
+    .line-4 { top: 300px; }
+    .line-5 { top: 380px; }
+    .protocols-section {
+      margin-top: 80px;
+    }
+    .protocols-title {
+      text-align: center;
+      font-size: 1rem;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+    .protocols-grid {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .protocol-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 20px;
+      background: var(--dashboard-card);
+      border: 1px solid var(--dashboard-border);
+      border-radius: 100px;
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+    .protocol-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--status-green);
+    }
+    .benefits-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 60px;
+    }
+    .benefit-card {
+      background: var(--dashboard-card);
+      border: 1px solid var(--dashboard-border);
+      border-radius: 16px;
+      padding: 24px;
+      text-align: center;
+    }
+    .benefit-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 14px;
+      background: rgba(59, 130, 246, 0.1);
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+    }
+    .benefit-title {
+      font-size: 1.125rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .benefit-desc {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+  <div class="dashboard">
+    <!-- Header -->
+    <div class="dashboard-header">
+      <div class="logo">
+        <div class="logo-icon">
+          <svg width="24" height="24" viewBox="0 0 32 32" fill="none">
+            <path d="M8 16L12 12L16 16L20 12L24 16" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M8 20L12 16L16 20L20 16L24 20" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <span>Shiftify</span>
+      </div>
+      <div class="header-right">
+        <div class="datetime">
+          <div class="date">Mittwoch, 05. Februar 2026</div>
+          <div class="time">14:32</div>
+        </div>
+        <div class="avatar">MS</div>
+      </div>
+    </div>
+
+    <div class="integration-container">
+      <!-- Page Title -->
+      <div class="page-title">
+        <h1>Systemintegration</h1>
+        <p>Verbinden Sie Ihre Maschinen und Systeme nahtlos mit Shiftify</p>
+      </div>
+
+      <!-- Diagram -->
+      <div class="diagram">
+        <!-- Left: Machines -->
+        <div class="column left">
+          <div class="node">
+            <div class="node-icon machine">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                <polyline points="17 2 12 7 7 2"></polyline>
+              </svg>
+            </div>
+            <div class="node-info">
+              <h3>Ofen / Furnace</h3>
+              <p>Temperaturüberwachung</p>
+            </div>
+          </div>
+          <div class="node">
+            <div class="node-icon machine">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2v4m0 12v4M4.93 4.93l2.83 2.83m8.48 8.48l2.83 2.83M2 12h4m12 0h4M4.93 19.07l2.83-2.83m8.48-8.48l2.83-2.83"></path>
+              </svg>
+            </div>
+            <div class="node-info">
+              <h3>Presse / Press</h3>
+              <p>Zykluszeiten, Druck</p>
+            </div>
+          </div>
+          <div class="node">
+            <div class="node-icon machine">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="3"></circle>
+                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+              </svg>
+            </div>
+            <div class="node-info">
+              <h3>CNC-Maschine</h3>
+              <p>Programme, Werkzeuge</p>
+            </div>
+          </div>
+          <div class="node">
+            <div class="node-icon machine">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+              </svg>
+            </div>
+            <div class="node-info">
+              <h3>Verpackung</h3>
+              <p>Stückzahlen, Labels</p>
+            </div>
+          </div>
+          <div class="node">
+            <div class="node-icon machine">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="1" y="3" width="15" height="13"></rect>
+                <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+                <circle cx="5.5" cy="18.5" r="2.5"></circle>
+                <circle cx="18.5" cy="18.5" r="2.5"></circle>
+              </svg>
+            </div>
+            <div class="node-info">
+              <h3>Logistik / AGV</h3>
+              <p>Materialfluss</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Center: Shiftify Hub -->
+        <div class="center-hub">
+          <div class="hub-outer">
+            <div class="hub-inner">
+              <div class="hub-logo">
+                <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
+                  <path d="M8 16L12 12L16 16L20 12L24 16" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M8 20L12 16L16 20L20 16L24 20" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div class="hub-title">Shiftify</div>
+              <div class="hub-subtitle">Cloud Platform</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Output Systems -->
+        <div class="column right">
+          <div class="node">
+            <div class="node-icon output">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="3" y1="9" x2="21" y2="9"></line>
+                <line x1="9" y1="21" x2="9" y2="9"></line>
+              </svg>
+            </div>
+            <div class="node-info">
+              <h3>Dashboard</h3>
+              <p>Echtzeit-Überwachung</p>
+            </div>
+          </div>
+          <div class="node">
+            <div class="node-icon output">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+                <polyline points="10 9 9 9 8 9"></polyline>
+              </svg>
+            </div>
+            <div class="node-info">
+              <h3>Reports</h3>
+              <p>PDF, Excel Export</p>
+            </div>
+          </div>
+          <div class="node">
+            <div class="node-icon output">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+              </svg>
+            </div>
+            <div class="node-info">
+              <h3>ERP-System</h3>
+              <p>SAP, Microsoft, etc.</p>
+            </div>
+          </div>
+          <div class="node">
+            <div class="node-icon output">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+              </svg>
+            </div>
+            <div class="node-info">
+              <h3>Alarme</h3>
+              <p>E-Mail, SMS, Push</p>
+            </div>
+          </div>
+          <div class="node">
+            <div class="node-icon output">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="16 18 22 12 16 6"></polyline>
+                <polyline points="8 6 2 12 8 18"></polyline>
+              </svg>
+            </div>
+            <div class="node-info">
+              <h3>REST API</h3>
+              <p>Eigene Integrationen</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Protocols -->
+      <div class="protocols-section">
+        <div class="protocols-title">Unterstützte Protokolle</div>
+        <div class="protocols-grid">
+          <div class="protocol-badge">
+            <span class="protocol-dot"></span>
+            OPC-UA
+          </div>
+          <div class="protocol-badge">
+            <span class="protocol-dot"></span>
+            Modbus TCP
+          </div>
+          <div class="protocol-badge">
+            <span class="protocol-dot"></span>
+            MQTT
+          </div>
+          <div class="protocol-badge">
+            <span class="protocol-dot"></span>
+            REST API
+          </div>
+          <div class="protocol-badge">
+            <span class="protocol-dot"></span>
+            S7 Protokoll
+          </div>
+          <div class="protocol-badge">
+            <span class="protocol-dot"></span>
+            MTConnect
+          </div>
+        </div>
+      </div>
+
+      <!-- Benefits -->
+      <div class="benefits-row">
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+          </div>
+          <div class="benefit-title">Schnelle Anbindung</div>
+          <div class="benefit-desc">Integration in wenigen Stunden statt Wochen dank vorkonfigurierter Konnektoren</div>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>
+          </div>
+          <div class="benefit-title">Sichere Verbindung</div>
+          <div class="benefit-desc">Ende-zu-Ende-Verschlüsselung und ISO 27001 zertifizierte Infrastruktur</div>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="12" y1="1" x2="12" y2="23"></line>
+              <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+            </svg>
+          </div>
+          <div class="benefit-title">Keine versteckten Kosten</div>
+          <div class="benefit-desc">Transparente Preise ohne zusätzliche Gebühren für Integrationen</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

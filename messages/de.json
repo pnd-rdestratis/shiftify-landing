@@ -1,0 +1,174 @@
+{
+  "metadata": {
+    "title": "Shiftify - Digitale Schichtdokumentation für die Produktion",
+    "description": "Shiftify digitalisiert Ihre Produktion - von der Schichtdokumentation bis zur Echtzeit-Analyse. Endlich sehen, was wirklich passiert."
+  },
+  "nav": {
+    "features": "Funktionen",
+    "useCases": "Anwendungsfälle",
+    "contact": "Kontakt",
+    "demo": "Demo anfragen"
+  },
+  "hero": {
+    "headline": "Wissen Sie, warum Ihre Linie gestern stand?",
+    "subheadline": "Shiftify digitalisiert Ihre Produktion - von der Schichtdokumentation bis zur Echtzeit-Analyse. Endlich sehen, was wirklich passiert.",
+    "cta": "Demo anfragen",
+    "ctaSecondary": "Video ansehen"
+  },
+  "painPoints": {
+    "headline": "Papier kostet Sie mehr als Sie denken",
+    "items": [
+      {
+        "title": "Papierchaos",
+        "description": "Schichtprotokolle verschwinden in Ordnern. Niemand analysiert sie."
+      },
+      {
+        "title": "Keine Echtzeit",
+        "description": "Sie erfahren von Problemen erst, wenn es zu spät ist."
+      },
+      {
+        "title": "Datensilos",
+        "description": "Maschinendaten hier, Protokolle dort, Qualität woanders."
+      },
+      {
+        "title": "Compliance-Risiko",
+        "description": "Audits werden zum Albtraum ohne digitale Nachverfolgung."
+      }
+    ]
+  },
+  "solution": {
+    "headline": "Es geht auch anders",
+    "pillars": [
+      {
+        "title": "Erfassen",
+        "description": "Tablet-Interface direkt an der Maschine"
+      },
+      {
+        "title": "Verbinden",
+        "description": "API-Integration mit Ihren Maschinen und Systemen"
+      },
+      {
+        "title": "Verstehen",
+        "description": "Echtzeit-Dashboards und Analysen"
+      }
+    ]
+  },
+  "dashboardTour": {
+    "headline": "Ihre Produktion auf einen Blick",
+    "tabs": {
+      "worker": "Werker-Ansicht",
+      "supervisor": "Schichtleiter-Ansicht",
+      "management": "Management-Ansicht"
+    },
+    "descriptions": {
+      "worker": "Intuitive Tablet-Eingabe für schnelle Dokumentation",
+      "supervisor": "Echtzeit-Status aller Maschinen und Linien",
+      "management": "KPIs und Analysen für fundierte Entscheidungen"
+    }
+  },
+  "stats": {
+    "headline": "Messbare Ergebnisse",
+    "disclaimer": "Basierend auf Pilotprojekten",
+    "items": [
+      {
+        "value": "23",
+        "unit": "Min.",
+        "prefix": "Ø",
+        "label": "Zeitersparnis pro Schicht"
+      },
+      {
+        "value": "38",
+        "unit": "%",
+        "label": "weniger ungeplante Stillstände"
+      },
+      {
+        "value": "100",
+        "unit": "%",
+        "label": "audit-sichere Dokumentation"
+      },
+      {
+        "value": "4",
+        "unit": "Wochen",
+        "prefix": "<",
+        "label": "bis zum Go-Live"
+      }
+    ]
+  },
+  "howItWorks": {
+    "headline": "In 3 Schritten zur digitalen Produktion",
+    "steps": [
+      {
+        "number": "1",
+        "title": "Prozess verstehen",
+        "description": "Wir analysieren Ihre aktuellen Abläufe"
+      },
+      {
+        "number": "2",
+        "title": "Maschinen anbinden",
+        "description": "Integration via API, Gateway oder manuell"
+      },
+      {
+        "number": "3",
+        "title": "Sofort starten",
+        "description": "Ihre Mitarbeiter arbeiten ab Tag 1 produktiv"
+      }
+    ]
+  },
+  "useCases": {
+    "headline": "Für Ihre Branche entwickelt",
+    "industries": [
+      {
+        "title": "Aluminium & Metallverarbeitung",
+        "description": "Schichtprotokolle, Temperaturüberwachung, Prozessdokumentation"
+      },
+      {
+        "title": "Automotive & Zulieferer",
+        "description": "Qualitätsdokumentation, Rückverfolgbarkeit, Prozessvalidierung"
+      },
+      {
+        "title": "Lebensmittel & Pharma",
+        "description": "Compliance, Chargenprotokollierung, HACCP-Dokumentation"
+      }
+    ]
+  },
+  "trust": {
+    "badges": {
+      "germany": "Made in Germany",
+      "gdpr": "DSGVO-konform",
+      "iso": "ISO 27001"
+    },
+    "clients": "Vertraut von führenden Industrieunternehmen"
+  },
+  "contact": {
+    "headline": "Bereit, Ihre Produktion zu digitalisieren?",
+    "cta": "Kostenlose Prozessanalyse vereinbaren",
+    "ctaSecondary": "Produktübersicht herunterladen",
+    "form": {
+      "name": "Name",
+      "email": "E-Mail",
+      "company": "Unternehmen",
+      "message": "Nachricht",
+      "submit": "Anfrage senden",
+      "success": "Vielen Dank! Wir melden uns innerhalb von 24 Stunden.",
+      "error": "Es ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut."
+    }
+  },
+  "footer": {
+    "tagline": "Die moderne Shopfloor-Lösung für digitale Produktion",
+    "links": {
+      "product": "Produkt",
+      "features": "Funktionen",
+      "pricing": "Preise",
+      "integrations": "Integrationen",
+      "company": "Unternehmen",
+      "about": "Über uns",
+      "careers": "Karriere",
+      "contact": "Kontakt",
+      "legal": "Rechtliches",
+      "imprint": "Impressum",
+      "privacy": "Datenschutz",
+      "terms": "AGB"
+    },
+    "copyright": "© 2026 Shiftify. Alle Rechte vorbehalten."
+  }
+}

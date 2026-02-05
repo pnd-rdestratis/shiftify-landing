@@ -1,0 +1,174 @@
+{
+  "metadata": {
+    "title": "Shiftify - Digital Shift Documentation for Production",
+    "description": "Shiftify digitizes your production - from shift documentation to real-time analysis. Finally see what's really happening."
+  },
+  "nav": {
+    "features": "Features",
+    "useCases": "Use Cases",
+    "contact": "Contact",
+    "demo": "Request Demo"
+  },
+  "hero": {
+    "headline": "Do you know why your line stopped yesterday?",
+    "subheadline": "Shiftify digitizes your production - from shift documentation to real-time analysis. Finally see what's really happening.",
+    "cta": "Request Demo",
+    "ctaSecondary": "Watch Video"
+  },
+  "painPoints": {
+    "headline": "Paper costs more than you think",
+    "items": [
+      {
+        "title": "Paper Chaos",
+        "description": "Shift protocols disappear into folders. Nobody analyzes them."
+      },
+      {
+        "title": "No Real-Time",
+        "description": "You learn about problems only when it's too late."
+      },
+      {
+        "title": "Data Silos",
+        "description": "Machine data here, protocols there, quality somewhere else."
+      },
+      {
+        "title": "Compliance Risk",
+        "description": "Audits become a nightmare without digital tracking."
+      }
+    ]
+  },
+  "solution": {
+    "headline": "There's a better way",
+    "pillars": [
+      {
+        "title": "Capture",
+        "description": "Tablet interface right at the machine"
+      },
+      {
+        "title": "Connect",
+        "description": "API integration with your machines and systems"
+      },
+      {
+        "title": "Understand",
+        "description": "Real-time dashboards and analytics"
+      }
+    ]
+  },
+  "dashboardTour": {
+    "headline": "Your production at a glance",
+    "tabs": {
+      "worker": "Operator View",
+      "supervisor": "Shift Lead View",
+      "management": "Management View"
+    },
+    "descriptions": {
+      "worker": "Intuitive tablet input for quick documentation",
+      "supervisor": "Real-time status of all machines and lines",
+      "management": "KPIs and analytics for informed decisions"
+    }
+  },
+  "stats": {
+    "headline": "Measurable Results",
+    "disclaimer": "Based on pilot projects",
+    "items": [
+      {
+        "value": "23",
+        "unit": "min",
+        "prefix": "Ø",
+        "label": "time saved per shift"
+      },
+      {
+        "value": "38",
+        "unit": "%",
+        "label": "fewer unplanned stops"
+      },
+      {
+        "value": "100",
+        "unit": "%",
+        "label": "audit-proof documentation"
+      },
+      {
+        "value": "4",
+        "unit": "weeks",
+        "prefix": "<",
+        "label": "to go-live"
+      }
+    ]
+  },
+  "howItWorks": {
+    "headline": "3 Steps to Digital Production",
+    "steps": [
+      {
+        "number": "1",
+        "title": "Understand Process",
+        "description": "We analyze your current workflows"
+      },
+      {
+        "number": "2",
+        "title": "Connect Machines",
+        "description": "Integration via API, gateway, or manual"
+      },
+      {
+        "number": "3",
+        "title": "Start Immediately",
+        "description": "Your team works productively from day 1"
+      }
+    ]
+  },
+  "useCases": {
+    "headline": "Built for your industry",
+    "industries": [
+      {
+        "title": "Aluminum & Metal Processing",
+        "description": "Shift protocols, temperature monitoring, process documentation"
+      },
+      {
+        "title": "Automotive & Suppliers",
+        "description": "Quality documentation, traceability, process validation"
+      },
+      {
+        "title": "Food & Pharma",
+        "description": "Compliance, batch logging, HACCP documentation"
+      }
+    ]
+  },
+  "trust": {
+    "badges": {
+      "germany": "Made in Germany",
+      "gdpr": "GDPR Compliant",
+      "iso": "ISO 27001"
+    },
+    "clients": "Trusted by leading industrial companies"
+  },
+  "contact": {
+    "headline": "Ready to digitize your production?",
+    "cta": "Schedule free process analysis",
+    "ctaSecondary": "Download product overview",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "company": "Company",
+      "message": "Message",
+      "submit": "Send request",
+      "success": "Thank you! We'll get back to you within 24 hours.",
+      "error": "An error occurred. Please try again."
+    }
+  },
+  "footer": {
+    "tagline": "The modern shopfloor solution for digital production",
+    "links": {
+      "product": "Product",
+      "features": "Features",
+      "pricing": "Pricing",
+      "integrations": "Integrations",
+      "company": "Company",
+      "about": "About",
+      "careers": "Careers",
+      "contact": "Contact",
+      "legal": "Legal",
+      "imprint": "Imprint",
+      "privacy": "Privacy",
+      "terms": "Terms"
+    },
+    "copyright": "© 2026 Shiftify. All rights reserved."
+  }
+}

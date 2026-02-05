@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1440">
+  <title>Shiftify - Dashboard</title>
+  <link rel="stylesheet" href="mockup-styles.css">
+  <style>
+    body {
+      width: 1440px;
+      min-height: 900px;
+    }
+    .main-grid {
+      display: grid;
+      grid-template-columns: 280px 1fr 320px;
+      gap: 24px;
+    }
+    .oee-gauge {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+    }
+    .kpi-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .mini-kpi {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 20px;
+      background: var(--dashboard-card);
+      border-radius: 12px;
+      border: 1px solid var(--dashboard-border);
+    }
+    .mini-kpi-left {
+      display: flex;
+      flex-direction: column;
+    }
+    .mini-kpi-value {
+      font-size: 1.75rem;
+      font-weight: 700;
+    }
+    .mini-kpi-label {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+    .mini-kpi-trend {
+      font-size: 0.875rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .sparkline-section {
+      margin-top: 24px;
+    }
+    .sparkline-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .sparkline-card {
+      background: var(--dashboard-card);
+      border-radius: 12px;
+      padding: 16px;
+      border: 1px solid var(--dashboard-border);
+    }
+    .sparkline-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+    .sparkline-title {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+    .sparkline-value {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+    .sparkline-chart {
+      height: 60px;
+      position: relative;
+    }
+    .sparkline-svg {
+      width: 100%;
+      height: 100%;
+    }
+    .machine-section {
+      margin-top: 24px;
+    }
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+    .section-title {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <div class="dashboard">
+    <!-- Header -->
+    <div class="dashboard-header">
+      <div class="logo">
+        <div class="logo-icon">
+          <svg width="24" height="24" viewBox="0 0 32 32" fill="none">
+            <path d="M8 16L12 12L16 16L20 12L24 16" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M8 20L12 16L16 20L20 16L24 20" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <span>Shiftify</span>
+      </div>
+      <div class="header-right">
+        <div class="datetime">
+          <div class="date">Mittwoch, 05. Februar 2026</div>
+          <div class="time">14:32</div>
+        </div>
+        <div class="avatar">MS</div>
+      </div>
+    </div>
+
+    <!-- Main Grid -->
+    <div class="main-grid">
+      <!-- Left: OEE Gauge -->
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title">OEE</span>
+          <span class="badge badge-success">Live</span>
+        </div>
+        <div class="oee-gauge">
+          <div class="gauge-container">
+            <svg viewBox="0 0 200 200">
+              <!-- Background ring -->
+              <circle class="gauge-ring gauge-bg" cx="100" cy="100" r="80" transform="rotate(-90 100 100)"/>
+              <!-- Green zone (100-75%) -->
+              <circle class="gauge-ring" cx="100" cy="100" r="80"
+                      stroke="#00C853"
+                      stroke-dasharray="125.6 376.8"
+                      stroke-dashoffset="0"
+                      transform="rotate(-90 100 100)"/>
+              <!-- Yellow zone (75-50%) -->
+              <circle class="gauge-ring" cx="100" cy="100" r="80"
+                      stroke="#FFC107"
+                      stroke-dasharray="125.6 376.8"
+                      stroke-dashoffset="-125.6"
+                      transform="rotate(-90 100 100)"/>
+              <!-- Red zone (50-0%) - not visible for 78% -->
+              <!-- Progress fill -->
+              <circle class="gauge-ring gauge-fill" cx="100" cy="100" r="80"
+                      stroke-dasharray="392"
+                      stroke-dashoffset="86"
+                      transform="rotate(-90 100 100)"/>
+            </svg>
+            <div class="gauge-center">
+              <div class="gauge-value">78%</div>
+              <div class="gauge-label">Gesamtanlageneffektivität</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Center: KPI Cards + Charts -->
+      <div>
+        <div class="kpi-stack">
+          <div class="mini-kpi">
+            <div class="mini-kpi-left">
+              <div class="mini-kpi-value" style="color: var(--status-green)">847</div>
+              <div class="mini-kpi-label">Teile / Stunde</div>
+            </div>
+            <div class="mini-kpi-trend trend-up">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M7 14l5-5 5 5H7z"/>
+              </svg>
+              +12%
+            </div>
+          </div>
+          <div class="mini-kpi">
+            <div class="mini-kpi-left">
+              <div class="mini-kpi-value" style="color: var(--status-yellow)">23 Min</div>
+              <div class="mini-kpi-label">Stillstand heute</div>
+            </div>
+            <div class="mini-kpi-trend trend-neutral">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19 13H5v-2h14v2z"/>
+              </svg>
+              -5 Min
+            </div>
+          </div>
+          <div class="mini-kpi">
+            <div class="mini-kpi-left">
+              <div class="mini-kpi-value" style="color: var(--status-green)">98.2%</div>
+              <div class="mini-kpi-label">Qualitätsrate</div>
+            </div>
+            <div class="mini-kpi-trend trend-up">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M7 14l5-5 5 5H7z"/>
+              </svg>
+              +0.3%
+            </div>
+          </div>
+        </div>
+
+        <!-- Sparklines -->
+        <div class="sparkline-section">
+          <div class="section-header">
+            <span class="section-title">Letzte 24 Stunden</span>
+          </div>
+          <div class="sparkline-row">
+            <div class="sparkline-card">
+              <div class="sparkline-header">
+                <span class="sparkline-title">Durchsatz</span>
+                <span class="sparkline-value">847/h</span>
+              </div>
+              <div class="sparkline-chart">
+                <svg class="sparkline-svg" viewBox="0 0 200 60" preserveAspectRatio="none">
+                  <defs>
+                    <linearGradient id="grad1" x1="0%" y1="0%" x2="0%" y2="100%">
+                      <stop offset="0%" style="stop-color:#00C853;stop-opacity:0.3" />
+                      <stop offset="100%" style="stop-color:#00C853;stop-opacity:0" />
+                    </linearGradient>
+                  </defs>
+                  <path d="M0,45 L20,42 L40,38 L60,40 L80,35 L100,30 L120,28 L140,25 L160,20 L180,18 L200,15 L200,60 L0,60 Z" fill="url(#grad1)"/>
+                  <path d="M0,45 L20,42 L40,38 L60,40 L80,35 L100,30 L120,28 L140,25 L160,20 L180,18 L200,15" fill="none" stroke="#00C853" stroke-width="2"/>
+                </svg>
+              </div>
+            </div>
+            <div class="sparkline-card">
+              <div class="sparkline-header">
+                <span class="sparkline-title">OEE</span>
+                <span class="sparkline-value">78%</span>
+              </div>
+              <div class="sparkline-chart">
+                <svg class="sparkline-svg" viewBox="0 0 200 60" preserveAspectRatio="none">
+                  <defs>
+                    <linearGradient id="grad2" x1="0%" y1="0%" x2="0%" y2="100%">
+                      <stop offset="0%" style="stop-color:#3B82F6;stop-opacity:0.3" />
+                      <stop offset="100%" style="stop-color:#3B82F6;stop-opacity:0" />
+                    </linearGradient>
+                  </defs>
+                  <path d="M0,30 L20,28 L40,32 L60,25 L80,28 L100,22 L120,24 L140,20 L160,22 L180,18 L200,20 L200,60 L0,60 Z" fill="url(#grad2)"/>
+                  <path d="M0,30 L20,28 L40,32 L60,25 L80,28 L100,22 L120,24 L140,20 L160,22 L180,18 L200,20" fill="none" stroke="#3B82F6" stroke-width="2"/>
+                </svg>
+              </div>
+            </div>
+            <div class="sparkline-card">
+              <div class="sparkline-header">
+                <span class="sparkline-title">Stillstand</span>
+                <span class="sparkline-value">23 Min</span>
+              </div>
+              <div class="sparkline-chart">
+                <svg class="sparkline-svg" viewBox="0 0 200 60" preserveAspectRatio="none">
+                  <defs>
+                    <linearGradient id="grad3" x1="0%" y1="0%" x2="0%" y2="100%">
+                      <stop offset="0%" style="stop-color:#FFC107;stop-opacity:0.3" />
+                      <stop offset="100%" style="stop-color:#FFC107;stop-opacity:0" />
+                    </linearGradient>
+                  </defs>
+                  <path d="M0,25 L20,30 L40,28 L60,35 L80,32 L100,38 L120,35 L140,40 L160,38 L180,42 L200,40 L200,60 L0,60 Z" fill="url(#grad3)"/>
+                  <path d="M0,25 L20,30 L40,28 L60,35 L80,32 L100,38 L120,35 L140,40 L160,38 L180,42 L200,40" fill="none" stroke="#FFC107" stroke-width="2"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Machine Grid -->
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title">Maschinenstatus</span>
+          <span class="text-sm text-muted">6 Maschinen</span>
+        </div>
+        <div class="machine-grid">
+          <div class="machine-tile">
+            <div class="machine-name">Ofen 1</div>
+            <div class="machine-status">
+              <span class="status-dot status-running"></span>
+              <span>Läuft</span>
+            </div>
+            <div class="machine-efficiency" style="color: var(--status-green)">92%</div>
+          </div>
+          <div class="machine-tile">
+            <div class="machine-name">Ofen 2</div>
+            <div class="machine-status">
+              <span class="status-dot status-running"></span>
+              <span>Läuft</span>
+            </div>
+            <div class="machine-efficiency" style="color: var(--status-green)">87%</div>
+          </div>
+          <div class="machine-tile">
+            <div class="machine-name">Presse 1</div>
+            <div class="machine-status">
+              <span class="status-dot status-warning"></span>
+              <span>Warnung</span>
+            </div>
+            <div class="machine-efficiency" style="color: var(--status-yellow)">68%</div>
+          </div>
+          <div class="machine-tile">
+            <div class="machine-name">Presse 2</div>
+            <div class="machine-status">
+              <span class="status-dot status-running"></span>
+              <span>Läuft</span>
+            </div>
+            <div class="machine-efficiency" style="color: var(--status-green)">81%</div>
+          </div>
+          <div class="machine-tile">
+            <div class="machine-name">CNC 1</div>
+            <div class="machine-status">
+              <span class="status-dot status-stopped"></span>
+              <span>Stillstand</span>
+            </div>
+            <div class="machine-efficiency" style="color: var(--status-red)">0%</div>
+          </div>
+          <div class="machine-tile">
+            <div class="machine-name">CNC 2</div>
+            <div class="machine-status">
+              <span class="status-dot status-running"></span>
+              <span>Läuft</span>
+            </div>
+            <div class="machine-efficiency" style="color: var(--status-green)">76%</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Machine Details Section -->
+    <div class="machine-section">
+      <div class="section-header">
+        <span class="section-title">Aktuelle Aufträge</span>
+        <button class="btn btn-secondary" style="padding: 8px 16px; font-size: 0.875rem;">
+          Alle anzeigen
+        </button>
+      </div>
+      <div class="card" style="padding: 0; overflow: hidden;">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Auftrag</th>
+              <th>Maschine</th>
+              <th>Fortschritt</th>
+              <th>Status</th>
+              <th>Schicht</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>AUF-2026-0847</strong></td>
+              <td>Ofen 1</td>
+              <td>
+                <div style="display: flex; align-items: center; gap: 12px;">
+                  <div style="flex: 1; height: 6px; background: var(--dashboard-border); border-radius: 3px; overflow: hidden;">
+                    <div style="width: 78%; height: 100%; background: var(--status-green); border-radius: 3px;"></div>
+                  </div>
+                  <span style="font-size: 0.875rem;">78%</span>
+                </div>
+              </td>
+              <td><span class="badge badge-success">In Arbeit</span></td>
+              <td>Frühschicht</td>
+            </tr>
+            <tr>
+              <td><strong>AUF-2026-0846</strong></td>
+              <td>Presse 1</td>
+              <td>
+                <div style="display: flex; align-items: center; gap: 12px;">
+                  <div style="flex: 1; height: 6px; background: var(--dashboard-border); border-radius: 3px; overflow: hidden;">
+                    <div style="width: 45%; height: 100%; background: var(--status-yellow); border-radius: 3px;"></div>
+                  </div>
+                  <span style="font-size: 0.875rem;">45%</span>
+                </div>
+              </td>
+              <td><span class="badge badge-warning">Verzögert</span></td>
+              <td>Frühschicht</td>
+            </tr>
+            <tr>
+              <td><strong>AUF-2026-0845</strong></td>
+              <td>CNC 2</td>
+              <td>
+                <div style="display: flex; align-items: center; gap: 12px;">
+                  <div style="flex: 1; height: 6px; background: var(--dashboard-border); border-radius: 3px; overflow: hidden;">
+                    <div style="width: 92%; height: 100%; background: var(--status-green); border-radius: 3px;"></div>
+                  </div>
+                  <span style="font-size: 0.875rem;">92%</span>
+                </div>
+              </td>
+              <td><span class="badge badge-success">In Arbeit</span></td>
+              <td>Frühschicht</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

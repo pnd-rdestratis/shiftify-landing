@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=768">
+  <title>Shiftify - Schichtprotokoll</title>
+  <link rel="stylesheet" href="mockup-styles.css">
+  <style>
+    body {
+      background: #111827;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 40px;
+    }
+    .tablet-frame {
+      width: 768px;
+      background: #1f1f1f;
+      border-radius: 48px;
+      padding: 24px;
+      box-shadow:
+        0 0 0 2px #333,
+        0 50px 100px -20px rgba(0, 0, 0, 0.7),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    }
+    .tablet-screen {
+      background: #F8FAFC;
+      border-radius: 32px;
+      overflow: hidden;
+      min-height: 1024px;
+    }
+    .tablet-header {
+      background: #0F172A;
+      color: white;
+      padding: 20px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .tablet-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 1.25rem;
+    }
+    .tablet-logo-icon {
+      width: 36px;
+      height: 36px;
+      background: #3B82F6;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .tablet-user {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .tablet-user-name {
+      font-size: 0.875rem;
+    }
+    .tablet-user-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #1E293B;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      font-size: 0.875rem;
+    }
+    .form-header {
+      background: white;
+      padding: 24px;
+      border-bottom: 1px solid #E2E8F0;
+    }
+    .form-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #0F172A;
+      margin-bottom: 4px;
+    }
+    .form-subtitle {
+      color: #64748B;
+      font-size: 1rem;
+    }
+    .form-content {
+      padding: 24px;
+    }
+    .form-group-tablet {
+      margin-bottom: 24px;
+    }
+    .form-label-tablet {
+      display: block;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #0F172A;
+      margin-bottom: 12px;
+    }
+    .form-input-tablet {
+      width: 100%;
+      padding: 18px 20px;
+      background: white;
+      border: 2px solid #E2E8F0;
+      border-radius: 12px;
+      color: #0F172A;
+      font-size: 1.125rem;
+      font-family: inherit;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .form-input-tablet:focus {
+      outline: none;
+      border-color: #3B82F6;
+      box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+    }
+    .form-input-tablet::placeholder {
+      color: #94A3B8;
+    }
+    .form-select-tablet {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%2364748B' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 16px center;
+      padding-right: 52px;
+    }
+    .status-toggles {
+      display: flex;
+      gap: 12px;
+    }
+    .status-toggle {
+      flex: 1;
+      padding: 20px;
+      border: 2px solid #E2E8F0;
+      border-radius: 16px;
+      background: white;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-align: center;
+    }
+    .status-toggle:hover {
+      border-color: #CBD5E1;
+    }
+    .status-toggle.active-green {
+      border-color: #00C853;
+      background: rgba(0, 200, 83, 0.08);
+    }
+    .status-toggle.active-yellow {
+      border-color: #FFC107;
+      background: rgba(255, 193, 7, 0.08);
+    }
+    .status-toggle.active-red {
+      border-color: #F44336;
+      background: rgba(244, 67, 54, 0.08);
+    }
+    .status-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 12px;
+    }
+    .status-icon.green { background: rgba(0, 200, 83, 0.15); color: #00C853; }
+    .status-icon.yellow { background: rgba(255, 193, 7, 0.15); color: #FFC107; }
+    .status-icon.red { background: rgba(244, 67, 54, 0.15); color: #F44336; }
+    .status-label {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: #0F172A;
+    }
+    .reason-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    .reason-item {
+      padding: 16px 20px;
+      background: white;
+      border: 2px solid #E2E8F0;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .reason-item:hover {
+      border-color: #CBD5E1;
+    }
+    .reason-item.selected {
+      border-color: #3B82F6;
+      background: rgba(59, 130, 246, 0.05);
+    }
+    .reason-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: #F1F5F9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #64748B;
+    }
+    .reason-text {
+      font-size: 1rem;
+      font-weight: 500;
+      color: #0F172A;
+    }
+    .action-buttons {
+      display: flex;
+      gap: 12px;
+      margin-top: 12px;
+    }
+    .action-btn {
+      flex: 1;
+      padding: 16px;
+      border: 2px solid #E2E8F0;
+      border-radius: 12px;
+      background: white;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-size: 1rem;
+      font-weight: 500;
+      color: #64748B;
+      transition: all 0.2s;
+    }
+    .action-btn:hover {
+      border-color: #3B82F6;
+      color: #3B82F6;
+    }
+    .submit-btn {
+      width: 100%;
+      padding: 22px;
+      background: #00C853;
+      border: none;
+      border-radius: 16px;
+      color: white;
+      font-size: 1.25rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 32px;
+      transition: background 0.2s;
+      box-shadow: 0 4px 14px rgba(0, 200, 83, 0.3);
+    }
+    .submit-btn:hover {
+      background: #00B548;
+    }
+  </style>
+</head>
+<body>
+  <div class="tablet-frame">
+    <div class="tablet-screen">
+      <!-- Header -->
+      <div class="tablet-header">
+        <div class="tablet-logo">
+          <div class="tablet-logo-icon">
+            <svg width="20" height="20" viewBox="0 0 32 32" fill="none">
+              <path d="M8 16L12 12L16 16L20 12L24 16" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M8 20L12 16L16 20L20 16L24 20" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <span>Shiftify</span>
+        </div>
+        <div class="tablet-user">
+          <span class="tablet-user-name">Max Schmidt</span>
+          <div class="tablet-user-avatar">MS</div>
+        </div>
+      </div>
+
+      <!-- Form Header -->
+      <div class="form-header">
+        <div class="form-title">Schichtprotokoll</div>
+        <div class="form-subtitle">Frühschicht - 05. Februar 2026 - 06:00 - 14:00</div>
+      </div>
+
+      <!-- Form Content -->
+      <div class="form-content">
+        <!-- Auftragsnummer -->
+        <div class="form-group-tablet">
+          <label class="form-label-tablet">Auftragsnummer</label>
+          <input type="text" class="form-input-tablet" value="AUF-2026-0847" readonly style="background: #F8FAFC;">
+        </div>
+
+        <!-- Linie -->
+        <div class="form-group-tablet">
+          <label class="form-label-tablet">Linie</label>
+          <select class="form-input-tablet form-select-tablet">
+            <option>Linie 1 - Ofen</option>
+            <option>Linie 2 - Presse</option>
+            <option>Linie 3 - CNC</option>
+          </select>
+        </div>
+
+        <!-- Status -->
+        <div class="form-group-tablet">
+          <label class="form-label-tablet">Status</label>
+          <div class="status-toggles">
+            <div class="status-toggle active-green">
+              <div class="status-icon green">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </div>
+              <div class="status-label">Läuft</div>
+            </div>
+            <div class="status-toggle">
+              <div class="status-icon yellow">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                  <line x1="12" y1="9" x2="12" y2="13"></line>
+                  <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                </svg>
+              </div>
+              <div class="status-label">Störung</div>
+            </div>
+            <div class="status-toggle">
+              <div class="status-icon red">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+                </svg>
+              </div>
+              <div class="status-label">Wartung</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bemerkung -->
+        <div class="form-group-tablet">
+          <label class="form-label-tablet">Bemerkung</label>
+          <textarea class="form-input-tablet" rows="3" placeholder="Optionale Bemerkungen zur Schicht..."></textarea>
+          <div class="action-buttons">
+            <button class="action-btn">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+                <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+                <line x1="12" y1="19" x2="12" y2="23"></line>
+                <line x1="8" y1="23" x2="16" y2="23"></line>
+              </svg>
+              Spracheingabe
+            </button>
+            <button class="action-btn">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+                <circle cx="12" cy="13" r="4"></circle>
+              </svg>
+              Foto hinzufügen
+            </button>
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <button class="submit-btn">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+          Speichern
+        </button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
