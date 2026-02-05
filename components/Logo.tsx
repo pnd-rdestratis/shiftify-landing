@@ -49,7 +49,7 @@ export function Logo({ className, variant = "default", size = "md" }: LogoProps)
           strokeLinejoin="round"
         />
       </svg>
-      <span>Shiftify</span>
+      <span>Linetrace</span>
     </div>
   );
 }

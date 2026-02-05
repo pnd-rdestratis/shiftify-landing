@@ -12,7 +12,7 @@ export function DashboardPreview() {
               <path d="M8 20L12 16L16 20L20 16L24 20" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
           </div>
-          <span className="text-[#0F172A] font-bold text-xl">Shiftify</span>
+          <span className="text-[#0F172A] font-bold text-xl">Linetrace</span>
         </div>
         <div className="flex items-center gap-4">
           <div className="text-right">

@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "title": "Shiftify - Digitale Schichtdokumentation für die Produktion",
-    "description": "Shiftify digitalisiert Ihre Produktion - von der Schichtdokumentation bis zur Echtzeit-Analyse. Endlich sehen, was wirklich passiert."
+    "title": "Linetrace - Digitale Schichtdokumentation für die Produktion",
+    "description": "Linetrace digitalisiert Ihre Produktion - von der Schichtdokumentation bis zur Echtzeit-Analyse. Endlich sehen, was wirklich passiert."
   },
   "nav": {
     "features": "Funktionen",
@@ -11,7 +11,7 @@
   },
   "hero": {
     "headline": "Wissen Sie, warum Ihre Linie gestern stand?",
-    "subheadline": "Shiftify digitalisiert Ihre Produktion - von der Schichtdokumentation bis zur Echtzeit-Analyse. Endlich sehen, was wirklich passiert.",
+    "subheadline": "Linetrace digitalisiert Ihre Produktion - von der Schichtdokumentation bis zur Echtzeit-Analyse. Endlich sehen, was wirklich passiert.",
     "cta": "Demo anfragen",
     "ctaSecondary": "Video ansehen"
   },
@@ -169,6 +169,6 @@
       "privacy": "Datenschutz",
       "terms": "AGB"
     },
-    "copyright": "© 2026 Shiftify. Alle Rechte vorbehalten."
+    "copyright": "© 2026 Linetrace. Alle Rechte vorbehalten."
   }
 }

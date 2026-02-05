@@ -37,7 +37,7 @@ function generateEmailHTML(data: {
                 <tr>
                   <td>
                     <h1 style="margin: 0; color: #FFFFFF; font-size: 28px; font-weight: 700;">
-                      Shiftify
+                      Linetrace
                     </h1>
                     <p style="margin: 8px 0 0; color: rgba(255,255,255,0.9); font-size: 14px;">
                       New Contact Request
@@ -115,7 +115,7 @@ function generateEmailHTML(data: {
               <table role="presentation" style="width: 100%;">
                 <tr>
                   <td>
-                    <p style="margin: 0 0 8px; color: #FFFFFF; font-size: 16px; font-weight: 600;">Shiftify</p>
+                    <p style="margin: 0 0 8px; color: #FFFFFF; font-size: 16px; font-weight: 600;">Linetrace</p>
                     <p style="margin: 0; color: #94A3B8; font-size: 13px;">Digital Shift Documentation for Production</p>
                   </td>
                   <td align="right" style="vertical-align: top;">
@@ -150,7 +150,7 @@ export async function POST(request: NextRequest) {
     }
 
     await transporter.sendMail({
-      from: `"Shiftify Contact" <${process.env.SMTP_USER}>`,
+      from: `"Linetrace Contact" <${process.env.SMTP_USER}>`,
       to: process.env.SMTP_USER,
       replyTo: email,
       subject: `New Contact Request from ${name} - ${company}`,

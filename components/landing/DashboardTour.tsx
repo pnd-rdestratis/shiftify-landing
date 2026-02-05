@@ -20,7 +20,7 @@ function TabletFormPreview() {
               <path d="M8 20L12 16L16 20L20 16L24 20" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
           </div>
-          <span className="text-[#0F172A] font-bold text-lg">Shiftify</span>
+          <span className="text-[#0F172A] font-bold text-lg">Linetrace</span>
         </div>
         <div className="flex items-center gap-3">
           <span className="text-[#64748B] text-sm">Max Schmidt</span>
@@ -95,7 +95,7 @@ function DowntimePreview() {
               <path d="M8 20L12 16L16 20L20 16L24 20" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
           </div>
-          <span className="text-[#0F172A] font-bold text-lg">Shiftify</span>
+          <span className="text-[#0F172A] font-bold text-lg">Linetrace</span>
         </div>
         <div className="text-right text-sm text-[#64748B]">14:32</div>
       </div>
@@ -183,7 +183,7 @@ function ReportPreview() {
               <path d="M8 20L12 16L16 20L20 16L24 20" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
           </div>
-          <span className="text-[#0F172A] font-bold text-lg">Shiftify</span>
+          <span className="text-[#0F172A] font-bold text-lg">Linetrace</span>
         </div>
         <div className="flex items-center gap-3">
           <div className="px-3 py-1.5 bg-white border border-[#E2E8F0] rounded-lg text-xs text-[#64748B] shadow-sm">

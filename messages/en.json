@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "title": "Shiftify - Digital Shift Documentation for Production",
-    "description": "Shiftify digitizes your production - from shift documentation to real-time analysis. Finally see what's really happening."
+    "title": "Linetrace - Digital Shift Documentation for Production",
+    "description": "Linetrace digitizes your production - from shift documentation to real-time analysis. Finally see what's really happening."
   },
   "nav": {
     "features": "Features",
@@ -11,7 +11,7 @@
   },
   "hero": {
     "headline": "Do you know why your line stopped yesterday?",
-    "subheadline": "Shiftify digitizes your production - from shift documentation to real-time analysis. Finally see what's really happening.",
+    "subheadline": "Linetrace digitizes your production - from shift documentation to real-time analysis. Finally see what's really happening.",
     "cta": "Request Demo",
     "ctaSecondary": "Watch Video"
   },
@@ -169,6 +169,6 @@
       "privacy": "Privacy",
       "terms": "Terms"
     },
-    "copyright": "© 2026 Shiftify. All rights reserved."
+    "copyright": "© 2026 Linetrace. All rights reserved."
   }
 }
