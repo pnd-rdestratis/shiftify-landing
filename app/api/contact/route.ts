@@ -19,7 +19,7 @@ const translations = {
     subject: "Vielen Dank für Ihr Interesse an Linetrace",
     thankYou: "Vielen Dank",
     received: "Wir haben Ihre Anfrage erhalten und freuen uns darauf, mit Ihnen über die Digitalisierung der Produktion bei",
-    canHelp: "zu sprechen.",
+    canHelp: " zu sprechen.",
     whatsNext: "Wie geht es weiter",
     step1: "Unser Team wird Ihre Anfrage prüfen",
     step2: "Wir melden uns bei Ihnen, um ein Gespräch zu vereinbaren",
