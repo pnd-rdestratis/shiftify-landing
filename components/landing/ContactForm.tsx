@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/Button";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { useState, FormEvent } from "react";
 import { motion } from "framer-motion";
 import { fadeUpVariants } from "@/lib/animations";
@@ -11,6 +11,7 @@ import { Send, CheckCircle, AlertCircle } from "lucide-react";
 
 export function ContactForm() {
   const t = useTranslations("contact");
+  const locale = useLocale();
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -24,6 +25,7 @@ export function ContactForm() {
       email: formData.get("email") as string,
       company: formData.get("company") as string,
       message: formData.get("message") as string,
+      locale: locale,
     };
 
     try {
