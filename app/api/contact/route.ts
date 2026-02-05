@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
-const NOTIFICATION_EMAIL = "riccardo.destratis@pandata.de";
+const NOTIFICATION_EMAILS = ["riccardo.destratis@pandata.de", "hi@pandata.de"];
 
 const transporter = nodemailer.createTransport({
   host: process.env.SMTP_HOST,
@@ -322,12 +322,12 @@ export async function POST(request: NextRequest) {
 
     const t = getTranslations(locale);
 
-    // Send notification email to Riccardo
+    // Send notification email to team
     await transporter.sendMail({
       from: `"Linetrace" <${process.env.SMTP_USER}>`,
-      to: NOTIFICATION_EMAIL,
+      to: NOTIFICATION_EMAILS,
       replyTo: email,
-      subject: `New Demo Request: ${name} from ${company}`,
+      subject: `New Inquiry: ${name} from ${company}`,
       html: generateNotificationEmail({ name, email, company, message, locale }),
     });
 
@@ -335,7 +335,7 @@ export async function POST(request: NextRequest) {
     await transporter.sendMail({
       from: `"Linetrace" <${process.env.SMTP_USER}>`,
       to: email,
-      replyTo: NOTIFICATION_EMAIL,
+      replyTo: NOTIFICATION_EMAILS[0],
       subject: t.subject,
       html: generateConfirmationEmail({ name, company, locale }),
     });
