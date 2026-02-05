@@ -235,7 +235,7 @@ function generateConfirmationEmail(data: {
                     <table role="presentation" style="width: 100%;">
                       <tr>
                         <td align="center">
-                          <a href="https://shiftify-five.vercel.app" style="display: inline-block; background-color: #3B82F6; color: #FFFFFF; text-decoration: none; padding: 14px 28px; border-radius: 8px; font-weight: 600; font-size: 14px;">
+                          <a href="https://www.pandata.de" style="display: inline-block; background-color: #3B82F6; color: #FFFFFF; text-decoration: none; padding: 14px 28px; border-radius: 8px; font-weight: 600; font-size: 14px;">
                             Visit Our Website
                           </a>
                         </td>
