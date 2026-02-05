@@ -7,12 +7,12 @@
     "features": "Funktionen",
     "useCases": "Anwendungsfälle",
     "contact": "Kontakt",
-    "demo": "Demo anfragen"
+    "demo": "Gespräch vereinbaren"
   },
   "hero": {
     "headline": "Wissen Sie, warum Ihre Linie gestern stand?",
     "subheadline": "Linetrace digitalisiert Ihre Produktion - von der Schichtdokumentation bis zur Echtzeit-Analyse. Endlich sehen, was wirklich passiert.",
-    "cta": "Demo anfragen",
+    "cta": "Gespräch vereinbaren",
     "ctaSecondary": "Video ansehen"
   },
   "painPoints": {
@@ -140,7 +140,7 @@
     "clients": "Vertraut von führenden Industrieunternehmen"
   },
   "contact": {
-    "headline": "Bereit, Ihre Produktion zu digitalisieren?",
+    "headline": "Lassen Sie uns über Ihre Produktion sprechen",
     "cta": "Kostenlose Prozessanalyse vereinbaren",
     "ctaSecondary": "Produktübersicht herunterladen",
     "form": {
@@ -148,8 +148,8 @@
       "email": "E-Mail",
       "company": "Unternehmen",
       "message": "Nachricht",
-      "submit": "Anfrage senden",
-      "success": "Vielen Dank! Wir melden uns innerhalb von 24 Stunden.",
+      "submit": "Gespräch vereinbaren",
+      "success": "Vielen Dank! Wir melden uns bei Ihnen, um ein Gespräch zu vereinbaren.",
       "error": "Es ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut."
     }
   },

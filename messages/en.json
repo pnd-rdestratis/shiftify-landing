@@ -7,12 +7,12 @@
     "features": "Features",
     "useCases": "Use Cases",
     "contact": "Contact",
-    "demo": "Request Demo"
+    "demo": "Let's Talk"
   },
   "hero": {
     "headline": "Do you know why your line stopped yesterday?",
     "subheadline": "Linetrace digitizes your production - from shift documentation to real-time analysis. Finally see what's really happening.",
-    "cta": "Request Demo",
+    "cta": "Let's Talk",
     "ctaSecondary": "Watch Video"
   },
   "painPoints": {
@@ -140,7 +140,7 @@
     "clients": "Trusted by leading industrial companies"
   },
   "contact": {
-    "headline": "Ready to digitize your production?",
+    "headline": "Let's talk about your production",
     "cta": "Schedule free process analysis",
     "ctaSecondary": "Download product overview",
     "form": {
@@ -148,8 +148,8 @@
       "email": "Email",
       "company": "Company",
       "message": "Message",
-      "submit": "Send request",
-      "success": "Thank you! We'll get back to you within 24 hours.",
+      "submit": "Schedule Conversation",
+      "success": "Thank you! We'll reach out soon to schedule a conversation.",
       "error": "An error occurred. Please try again."
     }
   },
