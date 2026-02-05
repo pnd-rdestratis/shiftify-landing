@@ -7,7 +7,7 @@ import { useState, FormEvent } from "react";
 import { motion } from "framer-motion";
 import { fadeUpVariants } from "@/lib/animations";
 import { cn } from "@/lib/utils";
-import { Send, CheckCircle, AlertCircle } from "lucide-react";
+import { CheckCircle, AlertCircle } from "lucide-react";
 
 export function ContactForm() {
   const t = useTranslations("contact");
@@ -24,7 +24,6 @@ export function ContactForm() {
       name: formData.get("name") as string,
       email: formData.get("email") as string,
       company: formData.get("company") as string,
-      message: formData.get("message") as string,
       locale: locale,
     };
 
@@ -51,9 +50,12 @@ export function ContactForm() {
     <section id="contact" className="section-padding bg-white">
       <div className="container-narrow">
         <ScrollReveal>
-          <h2 className="text-display-sm md:text-display font-bold text-center text-primary mb-6">
+          <h2 className="text-display-sm md:text-display font-bold text-center text-primary mb-4">
             {t("headline")}
           </h2>
+          <p className="text-center text-secondary mb-8 max-w-md mx-auto">
+            {t("description")}
+          </p>
         </ScrollReveal>
 
         <motion.div
@@ -70,7 +72,7 @@ export function ContactForm() {
                   <CheckCircle className="w-8 h-8 text-success" />
                 </div>
                 <p className="text-lg font-medium text-primary">
-                  {t("form.success")}
+                  {t("success")}
                 </p>
               </div>
             ) : (
@@ -135,29 +137,10 @@ export function ContactForm() {
                   />
                 </div>
 
-                <div>
-                  <label
-                    htmlFor="message"
-                    className="block text-sm font-medium text-primary mb-2"
-                  >
-                    {t("form.message")}
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    rows={4}
-                    className={cn(
-                      "w-full px-4 py-3 rounded-lg border border-border",
-                      "bg-white focus:border-accent focus:ring-2 focus:ring-accent/20",
-                      "transition-all duration-200 outline-none resize-none"
-                    )}
-                  />
-                </div>
-
                 {status === "error" && (
                   <div className="flex items-center gap-2 text-error">
                     <AlertCircle className="w-5 h-5" />
-                    <p className="text-sm">{t("form.error")}</p>
+                    <p className="text-sm">{t("error")}</p>
                   </div>
                 )}
 
@@ -171,10 +154,7 @@ export function ContactForm() {
                   {isSubmitting ? (
                     <span className="animate-pulse">...</span>
                   ) : (
-                    <>
-                      <Send className="w-5 h-5" />
-                      {t("form.submit")}
-                    </>
+                    t("submit")
                   )}
                 </Button>
               </form>

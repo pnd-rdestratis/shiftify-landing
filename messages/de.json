@@ -140,17 +140,15 @@
     "clients": "Vertraut von führenden Industrieunternehmen"
   },
   "contact": {
-    "headline": "Lassen Sie uns über Ihre Produktion sprechen",
-    "cta": "Kostenlose Prozessanalyse vereinbaren",
-    "ctaSecondary": "Produktübersicht herunterladen",
+    "headline": "Jetzt auf die Warteliste setzen",
+    "description": "Seien Sie unter den Ersten, die Linetrace nutzen können.",
+    "submit": "Auf Warteliste eintragen",
+    "success": "Sie sind auf der Liste! Wir melden uns bei Ihnen.",
+    "error": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut.",
     "form": {
       "name": "Name",
       "email": "E-Mail",
-      "company": "Unternehmen",
-      "message": "Nachricht",
-      "submit": "Gespräch vereinbaren",
-      "success": "Vielen Dank! Wir melden uns bei Ihnen, um ein Gespräch zu vereinbaren.",
-      "error": "Es ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut."
+      "company": "Unternehmen"
     }
   },
   "footer": {
